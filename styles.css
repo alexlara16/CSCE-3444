@@ -174,11 +174,11 @@ footer {
 
 /* Forum Styles */
 .forum {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 .forum h2 {
