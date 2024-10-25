@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="path/to/mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>UNT Tutor Forum</h1>
+        </div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="tutors.html">Tutors</a>
+            <a href="forum.html">Forum</a>
+            <a href="login.html">Login/Sign Up</a>
+        </nav>
+    </header>
+    
+    <main class="forum">
+        <h2>Forum</h2>
+        <div class="new-post">
+            <h3>Create a New Post</h3>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <textarea id="postContent" placeholder="Write something..."></textarea>
+            <button onclick="addPost()">Post</button>
+        </div>
+        <div id="forumPosts">
+            <!-- Forum posts will appear here -->
+        </div>
+    </main>
+    
+    <footer>
+        <p>UNT Tutoring © 2024</p>
+    </footer>
+    
+    <script src="forum.js"></script>
+</body>
+</html>
