@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/unt_mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>UNT Tutor Finder</h1>
+        </div>
+        <nav>
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/forum'">Forum</button>
+            <button onclick="location.href='/tutors'">Find Tutors</button>
+            <button onclick="location.href='/login'">Login/Signup</button>
+        </nav>
+    </header>
+    
+    <main class="forum">
+        <h2>Forum</h2>
+        
+        <!-- Form for creating a new post -->
+        <div class="new-post">
+            <h3>Create a New Post</h3>
+
+        <form action="/forum" method="POST">
+            <label for="author">Username:</label>
+            <input type="text" name="author" id="author" required placeholder="Enter your username">
+            <p></p>
+            <label for="content">Post Content:</label>
+            <textarea name="content" id="content" required placeholder="Write your post here"></textarea>
+            <button type="submit">Post</button>
+        </form>
+
+
+
+        </div>
+
+        <!-- Display existing forum posts -->
+        <div id="forumPosts">
+            {{#each posts}}
+                <div class="post">
+                    <h3>{{this.title}}</h3>
+                    <p>{{this.content}}</p>
+                    <p><em>Posted by {{this.author}} on {{this.createdAt}}</em></p>
+                </div>
+            {{/each}}
+        </div>
+    </main>
+    
+    <footer>
+        <p>UNT Tutoring © 2024</p>
+    </footer>
+</body>
+</html>
