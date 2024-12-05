@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Contact Messages</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/unt_mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>Admin - Contact Messages</h1>
+        </div>
+        <nav>
+            <button onclick="location.href='/admin/dashboard'">Dashboard</button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>All Contact Messages</h2>
+
+            {{#if messages.length}}
+                <ul>
+                    {{#each messages}}
+                        <li>
+                            <strong>{{this.name}} ({{this.email}})</strong>
+                            <p>{{this.message}}</p>
+                            <small>Submitted on: {{this.submittedAt}}</small>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{else}}
+                <p>No messages found.</p>
+            {{/if}}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UNT Tutor Finder</p>
+    </footer>
+</body>
+</html>

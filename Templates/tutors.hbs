@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNT Tutor Finder - Find Tutors</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/unt_mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>UNT Tutor Finder</h1>
+        </div>
+        <nav>
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/forum'">Forum</button>
+            <button onclick="location.href='/tutors'">Find Tutors</button>
+            {{#if user}}
+                <span>Welcome, {{user.username}}!</span>
+                <form action="/logout" method="POST" style="display:inline;">
+                    <button type="submit">Logout</button>
+                </form>
+            {{else}}
+                <button onclick="location.href='/login'">Login/Signup</button>
+            {{/if}}
+            <button onclick="location.href='/contact-us'">Contact Us</button> <!-- Link to Contact Us -->
+
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Find Your Tutor</h2>
+            <input type="text" id="searchInput" placeholder="Search by name, subject, or location...">
+            
+            <ul id="tutorList">
+                {{#each tutors}}
+                <li>
+                    <strong>{{this.name}}</strong> - {{this.subject}} - {{this.location}}
+                    {{#if ../isLoggedIn}}
+                    <br><em>Contact: {{this.contact}}</em>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            <p>{{#unless isLoggedIn}}<em>Login to view contact information.</em>{{/unless}}</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UNT Tutor Finder</p>
+    </footer>
+
+    <script src="/js/script.js"></script> <!-- Ensure script.js is in the public/js directory -->
+</body>
+</html>

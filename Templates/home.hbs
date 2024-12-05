@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNT Tutor Finder - Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="/images/unt_mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>UNT Tutor Finder</h1>
+        </div>
+        <nav>
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/forum'">Forum</button>
+            <button onclick="location.href='/tutors'">Find Tutors</button>
+            {{#if user}}
+                <span>Welcome, {{user.username}}!</span>
+                <form action="/logout" method="POST" style="display:inline;">
+                    <button type="submit">Logout</button>
+                </form>
+            {{else}}
+                <button onclick="location.href='/login'">Login/Signup</button>
+            {{/if}}
+            <button onclick="location.href='/contact-us'">Contact Us</button> <!-- Link to Contact Us -->
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Welcome to UNT Tutor Finder</h2>
+            {{#if user}}
+                <p>Welcome back, {{user.username}}! Explore the platform and make the most of your learning journey.</p>
+            {{else}}
+                <p>Your one-stop platform to find the best tutors at UNT. Whether you're struggling with a subject or looking to excel, we've got you covered!</p>
+                <p>Please <a href='/login'>login</a> or <a href="/login">sign up</a> to access full features.</p>
+            {{/if}}
+            {{#if message}}
+                <script>
+                    alert("{{message.content}}");  // Simple alert popup
+                </script>
+            {{/if}}
+
+        <div class="intro-image">
+            <img src="/images/school.jpg" alt="UNT Campus" class="school-photo">
+        </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UNT Tutor Finder</p>
+    </footer>
+</body>
+</html>

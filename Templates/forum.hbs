@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/unt_mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>UNT Tutor Finder</h1>
+        </div>
+        <nav>
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/forum'">Forum</button>
+            <button onclick="location.href='/tutors'">Find Tutors</button>
+            {{#if user}}
+                <span>Welcome, {{user.username}}!</span>
+                <form action="/logout" method="POST" style="display:inline;">
+                    <button type="submit">Logout</button>
+                </form>
+            {{else}}
+                <button onclick="location.href='/login'">Login/Signup</button>
+            {{/if}}
+            <button onclick="location.href='/contact-us'">Contact Us</button> <!-- Link to Contact Us -->
+
+        </nav>
+    </header>
+    
+    <main class="forum">
+        <h2>Forum</h2>
+        
+        <!-- Form for creating a new post -->
+        {{#if user}} <!-- Check if user is logged in -->
+            <div class="new-post">
+                <h3>Create a New Post</h3>
+                <form action="/forum" method="POST">
+                    <label for="author">Username:</label>
+                    <input type="text" name="author" id="author" required placeholder="Enter your username" value="{{user.username}}" readonly>
+                    <p></p>
+                    <label for="content">Post Content:</label>
+                    <textarea name="content" id="content" required placeholder="Write your post here"></textarea>
+                    <button type="submit">Post</button>
+                </form>
+            </div>
+        {{else}}
+            <p>You must <a href="/login">login</a> to post on the forum.</p>
+        {{/if}}
+
+
+
+
+        </div>
+
+        <!-- Display existing forum posts -->
+        <div id="forumPosts">
+            {{#each posts}}
+            <div class="post">
+                <h3>{{this.author}}</h3> <!-- Display the username -->
+                <p>{{this.content}}</p>
+                <p><em>Posted on {{this.createdAt}}</em></p>
+
+                {{#if this.canDelete}} <!-- Check if the user can delete this post -->
+                    <form action="/forum/delete/{{this._id}}" method="POST">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+
+
+
+    </main>
+    
+    <footer>
+        <p>UNT Tutoring © 2024</p>
+    </footer>
+</body>
+</html>

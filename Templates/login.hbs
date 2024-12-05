@@ -1,0 +1,60 @@
+<!DOCTYPE hbs>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNT Tutor Finder - Login/Signup</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/unt_mascot.png" alt="UNT Mascot" class="mascot">
+            <h1>UNT Tutor Finder</h1>
+        </div>
+        <nav>
+            <button onclick="location.href='/'">Home</button>
+            <button onclick="location.href='/forum'">Forum</button>
+            <button onclick="location.href='/tutors'">Find Tutors</button>
+            <button onclick="location.href='/login'">Login/Signup</button>
+            <button onclick="location.href='/contact-us'">Contact Us</button> <!-- Link to Contact Us -->
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-form">
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" placeholder="Email" required>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
+
+                <input class="sub" type="submit" value="Login">
+            </form>
+
+            <h2>Signup</h2>
+            <form action="/signup" method="post">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required placeholder="Enter your username">
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required placeholder="Enter your email">
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required placeholder="Enter your password">
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UNT Tutor Finder</p>
+    </footer>
+
+    <script src="/js/script.js"></script> <!-- Correct script path -->
+</body>
+</html>
